@@ -49,4 +49,3 @@ def delete_counter(name):
     del COUNTERS[name]
 
     return {"Message": f"Counter {name} has been deleted"}, status.HTTP_204_NO_CONTENT
-    
