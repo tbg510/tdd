@@ -65,3 +65,14 @@ class CounterTest(TestCase):
         # Read invalid counter
         invalid = client.get('/counters/invalid')
         self.assertEqual(invalid.status_code, status.HTTP_404_NOT_FOUND) # Check if counter not found
+
+
+    def test_delete_counter(self):
+        """Test delete counter"""
+        client = app.test_client()
+        result = client.post('/counters/delete')
+        self.assertEqual(result.status_code, status.HTTP_201_CREATED) # Check if counter made
+
+        # Delete counter
+        delete = client.delete('/counters/delete')
+        self.assertEqual(delete.status_code, status.HTTP_204_NO_CONTENT) # Check if counter deleted
